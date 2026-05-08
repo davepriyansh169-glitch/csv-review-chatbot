@@ -1,0 +1,6 @@
+﻿faiss-cpu==1.13.2
+langchain-community==0.4.1
+langchain-core==1.2.15
+langchain-ollama==1.0.1
+pandas==2.3.3
+streamlit==1.54.0
