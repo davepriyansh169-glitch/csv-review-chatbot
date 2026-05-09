@@ -97,13 +97,6 @@ If you want to try the terminal-based script:
 python main.py
 ```
 
-## Screenshots
-
-Add screenshots here before or after publishing to GitHub.
-
-- `Screenshot 1: Main chat interface`
-- `Screenshot 2: Example question and response`
-
 ## Future Improvements
 
 - Add better error handling and startup checks
