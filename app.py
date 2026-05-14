@@ -29,7 +29,7 @@ def get_retriever(df):
         # Filtering out null values and joining
         content = " | ".join([f"{col}: {val}" for col, val in row.items() if pd.notna(val)])
         documents.append(Document(page_content=content))
-    
+
     embeddings = get_embeddings()
     vectorstore = FAISS.from_documents(documents, embeddings)
     return vectorstore.as_retriever(search_kwargs={"k": 3})
@@ -45,8 +45,8 @@ if uploaded_file is not None:
 else:
     # Try to load default file if it exists
     try:
-        df = pd.read_csv("realistic_restaurant_reviews.csv")
-        st.sidebar.info("Using default restaurant reviews CSV.")
+        df = pd.read_csv("sample_data.csv")
+        st.sidebar.info("Using sample data CSV.")
     except FileNotFoundError:
         st.warning("Please upload a CSV file to begin.")
         st.stop()
@@ -59,7 +59,6 @@ except Exception as e:
     st.error("⚠️ Ollama Connection Error")
     st.write("1. Make sure the Ollama App is running.")
     st.write("2. Open terminal and run: `ollama pull llama3.2:1b` and `ollama pull all-minilm`")
-    # st.exception(e) # For debugging
     st.stop()
 
 # --- 2. THE FACE: CHAT INTERFACE ---

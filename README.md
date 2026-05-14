@@ -1,19 +1,19 @@
-﻿# AI Restaurant Review Agent
+# AI CSV Data Agent
 
-A beginner-friendly local AI project that answers questions about restaurant reviews using a Retrieval-Augmented Generation (RAG) workflow. The app uses Streamlit for the interface, LangChain for orchestration, FAISS for retrieval, and Ollama for running local models.
+A generic local AI project that answers questions about any CSV file using a Retrieval-Augmented Generation (RAG) workflow. The app uses Streamlit for the interface, LangChain for orchestration, FAISS for retrieval, and Ollama for running local models.
 
 ## Project Description
 
-This project loads a restaurant review dataset, converts the reviews into searchable documents, and retrieves the most relevant reviews when a user asks a question. The selected review context is then passed to a local Ollama model to generate an answer.
+This project allows users to upload any CSV file, converts the rows into searchable documents, and retrieves the most relevant data when a user asks a question. The selected context is then passed to a local Ollama model to generate an answer.
 
 ## Features
 
-- Local AI question answering over restaurant review data
+- Local AI question answering over any CSV data
+- CSV file upload support
 - Streamlit chat interface
 - Retrieval-Augmented Generation (RAG) pipeline
 - FAISS-based similarity search
 - Ollama-powered local embeddings and chat model
-- Simple Python test scripts for local model checks
 
 ## Tech Stack
 
@@ -28,13 +28,8 @@ This project loads a restaurant review dataset, converts the reviews into search
 
 ```text
 .
-|-- app_ai.py
-|-- main.py
-|-- vector.py
-|-- realistic_restaurant_reviews.csv
-|-- test_chain.py
-|-- test_embeddings.py
-|-- test_ollama.py
+|-- app.py
+|-- sample_data.csv
 |-- requirements.txt
 ```
 
@@ -76,37 +71,15 @@ ollama pull llama3.2:1b
 ollama pull all-minilm
 ```
 
-Optional note: some test scripts in this repository reference `tinyllama` and `mxbai-embed-large`. If you want to run those test files too, pull those models separately:
-
-```bash
-ollama pull tinyllama
-ollama pull mxbai-embed-large
-```
-
 ## How to Run the Project
 
 Run the Streamlit app:
 
 ```bash
-streamlit run app_ai.py
+streamlit run app.py
 ```
-
-If you want to try the terminal-based script:
-
-```bash
-python main.py
-```
-
-## Future Improvements
-
-- Add better error handling and startup checks
-- Save vector indexes locally for faster startup
-- Add filtering by rating or review date
-- Improve prompt design for more consistent answers
-- Add automated tests for the RAG flow
 
 ## Notes
 
 - This project is designed to run locally.
 - Ollama must be running before starting the app.
-- Large model files are intentionally excluded from Git tracking.
